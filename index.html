@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<style>
+    main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+    }
+
+    a {
+        color: #4865a0;
+    }
+
+    .log {
+        background-color: rgb(255, 255, 255);
+        height: 540px;
+        width: 432px;
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+
+    .inpn {
+        margin-top: 10px;
+        margin-left: 15px;
+        border-radius: 6px;
+        font-size: 17px;
+        padding: 14px 16px;
+        width: 155px;
+        height: 10px;
+        border-color: #e0e3e6;
+        border-width: 2px;
+        background-color: #f5f6f7;
+        border-style: solid;
+    }
+
+    .inpt {
+        margin-top: 10px;
+        margin-left: 15px;
+        border-radius: 6px;
+        font-size: 17px;
+        padding: 14px 16px;
+        width: 360px;
+        height: 10px;
+        border-width: 3px;
+        border-color: #e0e3e6;
+        border-width: 2px;
+        background-color: #f5f6f7;
+        border-style: solid;
+    }
+
+    .alinea1 {
+        margin-top: 20px;
+        width: 430px;
+    }
+
+    .letter {
+        text-align: center;
+        font-size: 15px;
+        color: #3e81f3;
+    }
+
+    .New {
+        background-color: #42b72a;
+        height: 36px;
+        width: 186px;
+        font-size: 17px;
+        margin: 30px;
+        margin-left: 100px;
+        border-color: #42b72ab2;
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        font-weight: bolder;
+    }
+
+    html {
+        font-family: "Open Sans", sans-serif, Arial;
+    }
+
+    .namer {
+        display: inline-flex;
+    }
+
+    .box {
+        height: 432px;
+        width: 800px;
+        margin: auto;
+        display: flex;
+    }
+
+    .image {
+        width: 301.6px;
+        height: 106px;
+        margin: -28px;
+    }
+
+
+    .h2 {
+        padding-bottom: 20px;
+        width: 500px;
+        height: 116px;
+        margin: 0;
+        font-weight: normal;
+        font-size: 28px;
+    }
+
+    .poli {
+        color: gray;
+        padding-top: 10px;
+        padding-left: 15px;
+        font-size: 12px;
+        padding-right: 15px
+    }
+
+    .plus {
+        border-color: grey;
+    }
+
+    .sign {
+        padding-left: 10px;
+        padding-bottom: 3px;
+        padding-top: 7px;
+        font-size: 35px;
+        font-weight: bolder;
+        padding-right: 235px;
+    }
+
+    .selm {
+        margin-top: 10px;
+        margin-left: 15px;
+        border-radius: 6px;
+        font-size: 17px;
+        padding-left: 10px;
+        width: 123px;
+        height: 40px;
+        border-width: 3px;
+        border-color: #e0e3e6;
+        border-width: 2px;
+    }
+
+    .secto {
+        color: gray;
+        padding-left: 12px;
+    }
+
+    .bx {
+        padding: 5px;
+        width: 105px;
+        display: inline-flex;
+        margin-top: 10px;
+        margin-left: 15px;
+        border-radius: 6px;
+        font-size: 17px;
+        border-width: 3px;
+        border-color: #e0e3e6;
+        border-width: 2px;
+        border-style: solid;
+        padding-left: 5px;
+
+    }
+
+    .div2 {
+        position: absolute;
+        z-index: 7;
+        background-color: rgba(255, 255, 255, 0.76);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .show {
+        display: flex;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .top {
+        display: flex;
+    }
+
+    .cross {
+        background-color: transparent;
+        border: none;
+    }
+
+    .rad {
+        margin-left: 30px;
+    }
+
+    .inter {
+        width: 11px;
+        height: 11px;
+    }
+
+    .inpn:focus {
+        outline: none;
+    }
+
+    .inpt:focus {
+        outline: none;
+    }
+</style>
+<script>
+    function hideModal() {
+        const modal = document.querySelector('#myDiv');
+        modal.classList.remove('show');
+    }
+    function showModal() {
+        const modal = document.querySelector('#myDiv');
+        modal.classList.add('show');
+    }
+
+
+    function Validate() {
+        //let data = {
+        let name1 = document.getElementById("namel").value;
+        let surname1 = document.getElementById("surname").value;
+        let phone1 = document.getElementById("phone").value;
+        let pass1 = document.getElementById("pass").value;
+        let day1 = document.getElementById("day").value;
+        let month1 = document.getElementById("month").value;
+        let year1 = document.getElementById("year").value;
+        let Male = document.getElementById("Hombre").value
+        let Woman = document.getElementById("Mujer").value
+        let Other = document.getElementById("Otro").value
+        var gender = null;
+        if (document.getElementById("Hombre").checked) {
+            gender = Male;
+        }
+        else if (document.getElementById("Mujer").checked) {
+            gender = Woman;
+        }
+        else if (document.getElementById("Otro").checked) {
+            gender = Other;
+        }
+        else{
+            gender = null;
+        }
+
+        //const data = '{name2:  "${this.name1}"  , surname2: "${this.surname1}", phone2: ${this.phone1},pass2: "${this.pass1}", fecha: ${this.day1} + "/" + ${this.month1} + "/" + ${this.year1}}';
+        if (name1 === "" || surname1 === "" || phone1 === "" || pass1 === "" || day1 === day.selected || month1 === month.selected || year1 === year.selected || gender== null) {
+            alert("Falta contenido");
+        } else {
+            alert("firstName: " + name1 + "\n" +
+                "lastName: " + surname1 + "\n" +
+                "phone: " + phone1 + "\n" +
+                "password: " + pass1 + "\n" +
+                "birthday:" + day1 + "/" + month1 + "/" + year1 + "\n" +
+                "gender: " + gender);
+
+            //alert(JSON.stringify(data));
+        }
+    }
+</script>
+
+<head>
+    <title>Facebook</title>
+</head>
+
+<body>
+    <main>
+        <div id="myDiv" class="div2">
+            <div class="linea">
+                <article class="log">
+                    <form>
+                        <div class="top">
+                            <div class="sign">
+                                Sign Up
+                            </div>
+                            <button type="button" class="cross" onclick="hideModal()">
+                                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/Q0G2UVjVQ4_.png" /></button>
+                        </div>
+                        <div class="secto">It's quick and easy.</div>
+                        <hr class="alinea1">
+                        <div class="namer">
+                            <input class="inpn" type="text" name="Name" placeholder="First Name" maxlength="30"
+                                id="namel">
+                            <input class="inpn" type="text" name="pass" maxlength="30" placeholder="Last Name"
+                                id="surname">
+                        </div>
+                        <input type="tel" class="inpt" name="pass" maxlength="30" placeholder="Mobile Number or email"
+                            id="phone">
+
+                        <input type="password" class="inpt" name="pass" maxlength="30" placeholder="New Password"
+                            id="pass">
+                        <div class="poli">Birthday <a href="#"><img
+                                    src="https://pngimg.com/uploads/question_mark/question_mark_PNG99.png"
+                                    class="inter"></a></div>
+                        <div class="name">
+                            <select class="selm" name="monthr" id="month">
+                                <option value="Jan" selected>Jan</option>
+                                <option value="Feb">Feb</option>
+                                <option value="Mar">Mar</option>
+                                <option value="Apr">Apr</option>
+                                <option value="May">May</option>
+                                <option value="Jun">Jun</option>
+                                <option value="Jul">Jul</option>
+                                <option value="Aug">Aug</option>
+                                <option value="Sep">Sep</option>
+                                <option value="Oct">Oct</option>
+                                <option value="Nov">Nov</option>
+                                <option value="Dic">Dic</option>
+                            </select>
+                            <select class="selm" name="dayr" id="day">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <select class="selm" name="yearr" id="year">
+                                <option value="2022" selected>2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                            </select>
+                        </div>
+                        <div class="poli">Gender <a <a href="#"><img
+                                    src="https://pngimg.com/uploads/question_mark/question_mark_PNG99.png"
+                                    class="inter"></a></div>
+                        <div class="bx">Male
+                            <input type="radio" class="rad" id="Hombre" name="Gen" value="Male">
+                            </input>
+                        </div>
+                        <div class="bx">Female
+                            <input type="radio" class="rad" id="Mujer" name="Gen" value="Female">
+                            </input>
+                        </div>
+                        <div class="bx"> Custom
+                            <input type="radio" class="rad" id="Otro" name="Gen" value="Custom">
+
+                            </input>
+                        </div>
+
+                        <div class="poli">
+                            By clicking Sign Up, you agree to our <a href="#">Terms</a>. Learn
+                            how we
+                            collect, use and share
+                            your data in our <a href="#">Data Policy</a> and how we use cookies
+                            and
+                            similar
+                            technology in
+                            our <a href="#">Cookies Policy</a>. Yosu may receive SMS
+                            Notifications from
+                            us
+                            and can opt out
+                            any time.
+                        </div>
+
+                        <input type="button" value="Sign Up" class="New" onclick="Validate()">
+
+                    </form>
+                </article>
+            </div>
+        </div>
+    </main>
+    <button onclick="showModal()">
+        mi boton de abrir
+    </button>
+</body>
+
+</html>
